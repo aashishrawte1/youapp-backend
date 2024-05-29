@@ -16,6 +16,7 @@ export class ProfileController {
     @UseGuards(JwtAuthGuard)
     @Post('createProfile')
     createProfile(@CurrentUser('id') userId: string, @Body() profileDto: ProfileDto) {
+        console.log('userid=>', userId);
         return this.profileService.createProfile(userId, profileDto);
     }
 
